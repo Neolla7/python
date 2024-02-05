@@ -7,11 +7,19 @@
 Если денег на счету недостаточно - вывести соответсвующее сообщение
 Если достаточно - написать, что заказ принят и вывести сколько остаток на счету"""
 
-cash_credit = int(input("please, enter a cash to automat: "))
+cash_credit = input("please, enter a cash to automat: ")
+
+if cash_credit.isdigit():
+    cash_credit = int(cash_credit)
+else:
+    print("Wrong input")
+    exit()
+
 latte_price = 10 
 cofee_price = 7
 cacao_price = 8
 drinks = ["latte", "coffee", "cacao"]
+
 print("available drinks:")
 print(f"latte: {latte_price}$ - press 1 \ncoffe: {cofee_price}$ - press 2 \ncacao: {cacao_price}$ - press 3")
 
@@ -27,7 +35,7 @@ if choice_drinks == 1:
     
 elif choice_drinks == 2:
     if cash_credit >= cofee_price:
-        cash_credit -= cofee_price
+        cash_credit -= cofee_price 
     else:
         print ("you dont have enough money, looser)")
 
